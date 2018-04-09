@@ -11,7 +11,7 @@ def read_sas_write_hdf(read_paths, write_dir, hdf_store, downcast=True, verbose=
         if verbose:
             print('Writing data: {}'.format(data_name))
             tmp.columns = [x.lower() for x in tmp.columns]
-        tmp.to_hdf(os.path.join(write_dir, write_dir, hdf_store), data_name)
+        tmp.to_hdf(os.path.join(write_dir, hdf_store), data_name)
 
 def plot_user_steps(pax_df, seqn_id=None, day_of_study=1, window_len=30):
     """
