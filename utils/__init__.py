@@ -4,10 +4,12 @@ import os
 
 def read_sas_write_hdf(read_paths, write_dir, hdf_store):
     """
-    Read raw SAS files from source and write to binary feather format.
+    Read raw SAS files from source and write to binary feather
+    format.
     
     Inputs:
-        read_paths (dict): Dictionary of name: url key-value pairs to download
+        read_paths (dict): Dictionary of name: url key-value
+        pairs to download
         write_dir (str): Path to hdf store
         hdf_store (str): Name of hdf store to write to
         
@@ -26,16 +28,19 @@ def plot_user_steps(pax_df, seqn_id=None, day_of_study=1, window_len=30):
     Plot a single user-day's walk step intensity values.
     
     Inputs:
-        pax_df (Pandas DataFrame): DataFrame of all user step data
-        seqn_id (str): If not None, plot this specific user's step intensity
+        pax_df (Pandas DataFrame): DataFrame of all user 
+        step data
+        seqn_id (str): If not None, plot this specific user's 
+        step intensity
         day_of_study (int): Day of study to plot
-        window_len (int): Choice of rolling window for walk step intensity
+        window_len (int): Choice of rolling window for walk 
+        step intensity
         
     Returns:
         None. Plots user walk steps inline in notebook.
     """
     if seqn_id is None:
-        seqn_id = np.random.choice(pax_df.seqn.unique(), 1)[0]
+            seqn_id = np.random.choice(pax_df[pax_df.paxday==day_of_study].seqn.unique(), 1)[0]
     plt_df = pax_df[(pax_df.seqn==seqn_id) & (pax_df.paxday==day_of_study)]
     try:
         assert len(plt_df) == 1440 # Make sure there are 1440 rows in the dataframe
