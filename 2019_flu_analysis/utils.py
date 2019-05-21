@@ -159,6 +159,7 @@ class PanelEventPlotter:
         s = int(s[:-1].split('[')[1].split('.')[0])
         return s
 
+    
 def onehot_integer_series(s, drop_idx=None):
     """One-hot encode an integer series.
     Parameters
@@ -184,8 +185,6 @@ def onehot_integer_series(s, drop_idx=None):
         dummies.drop(idx_min, axis=1, inplace=True)
     return dummies
 
-
-np.random.seed(42)
 
 def event_window(event_date, window_size):
     """
